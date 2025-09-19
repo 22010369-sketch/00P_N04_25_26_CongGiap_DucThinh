@@ -2,7 +2,7 @@
 Repo working group
 
 
-Yeu cau 3:
+Yeu cau 4:
 Project/ - Quản lý Mua Hàng
 │── src/
 │   ├── User.java
@@ -15,6 +15,8 @@ Project/ - Quản lý Mua Hàng
 import java.util.ArrayList;
 import java.util.Date;
 
+
+import java.util.*;
 
 class User {
     private int id;
@@ -29,14 +31,23 @@ class User {
         this.password = password;
     }
 
-    public boolean login(String email, String password) {
-        return this.email.equals(email) && this.password.equals(password);
+    // CREATE
+    public static User createUser(int id, String name, String email, String password) {
+        return new User(id, name, email, password);
     }
 
+    // READ
+    public void display() {
+        System.out.println(this);
+    }
+
+    // UPDATE
     public void updateInfo(String name, String email) {
         this.name = name;
         this.email = email;
     }
+
+    // DELETE: ở mức quản lý danh sách thì sẽ remove khỏi ArrayList
 
     @Override
     public String toString() {
@@ -55,6 +66,24 @@ class Product {
         this.title = title;
         this.price = price;
     }
+
+    // CREATE
+    public static Product createProduct(int id, String title, double price) {
+        return new Product(id, title, price);
+    }
+
+    // READ
+    public void display() {
+        System.out.println(this);
+    }
+
+    // UPDATE
+    public void update(String title, double price) {
+        this.title = title;
+        this.price = price;
+    }
+
+    // DELETE: ở mức quản lý danh sách thì remove khỏi ArrayList
 
     public double getPrice() {
         return price;
@@ -78,6 +107,17 @@ class Order {
         this.products = new ArrayList<>();
     }
 
+    // CREATE
+    public static Order createOrder(int orderId) {
+        return new Order(orderId);
+    }
+
+    // READ
+    public void display() {
+        System.out.println(this);
+    }
+
+    // UPDATE: thêm / xóa sản phẩm
     public void addProduct(Product p) {
         products.add(p);
     }
@@ -85,6 +125,8 @@ class Order {
     public void removeProduct(Product p) {
         products.remove(p);
     }
+
+    // DELETE: remove khỏi danh sách quản lý
 
     public double calculateTotal() {
         double total = 0;
@@ -103,28 +145,23 @@ class Order {
 
 public class Main {
     public static void main(String[] args) {
-        
-        User user = new User(1, "Nguyen Van A", "a@gmail.com", "123456");
+        // CRUD demo cho User
+        User u1 = User.createUser(1, "Nguyen Van A", "a@gmail.com", "123");
+        u1.display(); // Read
+        u1.updateInfo("Nguyen Van B", "b@gmail.com"); // Update
+        u1.display();
 
-        
-        if (user.login("a@gmail.com", "123456")) {
-            System.out.println("Login thành công: " + user);
-        } else {
-            System.out.println("Sai thông tin đăng nhập!");
-        }
+        // CRUD demo cho Product
+        Product p1 = Product.createProduct(101, "Laptop", 1500);
+        p1.display(); // Read
+        p1.update("Gaming Laptop", 2000); // Update
+        p1.display();
 
-        
-        Product p1 = new Product(101, "Laptop", 1500);
-        Product p2 = new Product(102, "Smartphone", 800);
-        Product p3 = new Product(103, "Tablet", 500);
-
-        
-        Order order = new Order(1001);
-        order.addProduct(p1);
-        order.addProduct(p2);
-        order.addProduct(p3);
-
-        
-        System.out.println(order);
+        // CRUD demo cho Order
+        Order o1 = Order.createOrder(1001);
+        o1.addProduct(p1); // Create/Add
+        o1.display(); // Read
+        o1.removeProduct(p1); // Delete
+        o1.display();
     }
 }
