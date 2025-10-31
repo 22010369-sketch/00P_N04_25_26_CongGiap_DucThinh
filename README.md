@@ -305,5 +305,5 @@ springbootApp/complete/
 ## Liên kết
 
 - [GitHub Repository](https://github.com/22010369-sketch/00P_N04_25_26_CongGiap_DucThinh)
-- [README.md trên GitHub](https://github.com/Do17032005/OOP_N01_Term3_2025_K17_Group6/blob/Main/README.md)
+- [README.md trên GitHub](https://github.com/22010369-sketch/00P_N04_25_26_CongGiap_DucThinh/blob/master/README.md)
 
