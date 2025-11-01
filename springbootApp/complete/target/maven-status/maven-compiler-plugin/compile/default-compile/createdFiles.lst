@@ -17,6 +17,7 @@ com\example\servingwebcontent\CustomerController.class
 com\example\servingwebcontent\model\SeatList.class
 com\example\servingwebcontent\database\AivenConnection.class
 com\example\servingwebcontent\ServingWebContentApplication.class
+com\example\servingwebcontent\HomeController.class
 com\example\servingwebcontent\model\ObjectGeneral.class
 com\example\servingwebcontent\ResourceNotFoundException.class
 com\example\servingwebcontent\model\RoomList.class
