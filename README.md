@@ -258,7 +258,7 @@ springbootApp/complete/
 
 4. **Truy cập ứng dụng:**
    ```
-   [http://localhost:8080/](https://zero0p-n04-25-26-conggiap-ducthinh-1.onrender.com/)
+   (https://zero0p-n04-25-26-conggiap-ducthinh-1.onrender.com/)
    ```
 
 ---
